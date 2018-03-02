@@ -41,7 +41,7 @@ It will need some extras. See `requirements_docker.txt`
 
         $ pip install -r requirements_docker.txt
         
-        $ . ./bin/start_docker_development_server.sh
+        $ . ./bin/start-docker-development-server.sh
         
 ##### If pipenv
 
@@ -49,7 +49,7 @@ It will need some extras. See `requirements_docker.txt`
 
         $ createdb your-rights
 
-* With a shortcut just edit `./bin/start_development_server.sh` with your DB system info and run the shell script.
+* With a shortcut just edit `./bin/start-development-server.sh` with your DB system info and run the shell script.
 
 * Or without the `script` follow ahead with:
 
@@ -78,15 +78,31 @@ Default Django administration screen should be up at `http://0.0.0.0:8000/admin`
     
 ## Running the tests
 
-To run the unittests for this system.
+From `your-rights` directory with `pipenv --three` and `pipenv shell` previously executed:
 
-From `your-rights` directory with `pipenv --three` and `pipenv shell` previously executed, run:
+    $ pip install -r requirements.txt
+
+### Unittests
+
+To run the unittests for this system locally:
     
     $ python manage.py test
 
 In case you want to see code coverage the `htmlcov` folder (which contains html output from `coverage` package) will be created after running:
 
-    $ . ./bin/run_tests.sh
+    $ . ./bin/run-tests.sh
+
+### Functional tests
+
+Do you have `geckodrive` install for `Firefox`? If not see [jq](https://github.com/stedolan/jq/wiki/Installation).
+
+After than install it with:
+    
+    $ . ./bin/geckodrive-install.sh
+    
+and
+
+    $ python tests/functional/tests.py
 
 ## Built With
 
